@@ -56,7 +56,7 @@ export default function OurTeamSection() {
           {teamMembers.map((member) => (
             <div 
               key={member.id} 
-              className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden flex flex-col transition duration-300 hover:shadow-md"
+              className="bg-white rounded-2xl border border-gray-100 border-b-4 border-b-transparent shadow-sm overflow-hidden flex flex-col transition-all duration-300 hover:shadow-md hover:border-b-red-600"
             >
               {/* Soft Light-Blue Banner Top */}
               <div className="relative bg-[#DCEBFB] h-48 sm:h-52 flex justify-center items-end">

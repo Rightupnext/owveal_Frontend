@@ -115,11 +115,28 @@ function Hero() {
 
   return (
     <section
-      className={`h-[420px] bg-cover bg-center transition-all duration-1000 ease-out ${
+      className={`relative h-[420px] sm:h-[480px] w-full bg-cover bg-center flex items-center justify-center transition-all duration-1000 ease-out ${
         mounted ? "opacity-100 scale-100" : "opacity-0 scale-105"
       }`}
       style={{ backgroundImage: `url(${HERO_IMAGE_URL})` }}
-    />
+    >
+      {/* Dark Overlay for Text Readability */}
+      <div className="absolute inset-0  z-10" />
+
+      {/* Centered Content Container */}
+      <div className="relative z-20 max-w-3xl mx-auto px-6 text-center flex flex-col items-center justify-center">
+        {/* Main Title */}
+        <h1 className="text-4xl sm:text-4xl font-black text-white tracking-wide mb-4 drop-shadow-lg">
+          Heavy Machinery
+        </h1>
+
+        {/* Subtitle / Description */}
+        <p className="text-sm sm:text-lg text-gray-200 font-normal leading-relaxed max-w-2xl drop-shadow">
+          We design and optimize machines that operate in demanding environments,
+          <br className="hidden sm:inline" /> focusing on durability, efficiency, and ease of operation.
+        </p>
+      </div>
+    </section>
   );
 }
 

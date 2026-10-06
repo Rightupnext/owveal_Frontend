@@ -104,8 +104,6 @@ function useInView(threshold = 0.2) {
 
 // ---- Sub-components ----
 
-
-
 function Hero() {
   const [mounted, setMounted] = useState(false);
 
@@ -116,13 +114,28 @@ function Hero() {
 
   return (
     <section
-      className="h-[420px] bg-cover bg-center"
-      style={{
-        backgroundImage: `url(${HERO_IMAGE_URL})`,
-        clipPath: mounted ? "inset(0 0 0 0)" : "inset(100% 0 0 0)",
-        transition: "clip-path 1000ms cubic-bezier(0.65, 0, 0.35, 1)",
-      }}
-    />
+      className={`relative h-[420px] sm:h-[480px] w-full bg-cover bg-center flex items-center justify-center transition-all duration-1000 ease-out ${
+        mounted ? "opacity-100 scale-100" : "opacity-0 scale-105"
+      }`}
+      style={{ backgroundImage: `url(${HERO_IMAGE_URL})` }}
+    >
+      {/* Dark Overlay for Text Contrast */}
+      <div className="absolute inset-0  z-10" />
+
+      {/* Centered Content Container */}
+      <div className="relative z-20 max-w-3xl mx-auto px-6 text-center flex flex-col items-center justify-center">
+        {/* Main Title */}
+        <h1 className="text-4xl sm:text-4xl font-black text-white tracking-wide mb-4 drop-shadow-lg">
+          Pharmaceuticals
+        </h1>
+
+        {/* Subtitle / Description */}
+        <p className="text-sm sm:text-lg text-gray-200 font-normal leading-relaxed max-w-2xl drop-shadow">
+          We deliver engineering solutions tailored for pharmaceutical production where
+          <br className="hidden sm:inline" /> hygiene, compliance, and precision are essential.
+        </p>
+      </div>
+    </section>
   );
 }
 

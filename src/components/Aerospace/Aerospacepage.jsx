@@ -1,17 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Check, ChevronDown } from "lucide-react";
 
-// ---- Static content (edit here) ----
-const NAV_LINKS = [
-  { label: "Home", href: "#", hasDropdown: false },
-  { label: "Industries", href: "#", hasDropdown: true },
-  { label: "Expertices", href: "#", hasDropdown: true },
-  { label: "Products", href: "#", hasDropdown: true },
-  { label: "Success Story", href: "#", hasDropdown: false },
-  { label: "Case Study", href: "#", hasDropdown: false },
-  { label: "About Us", href: "#", hasDropdown: false },
-  { label: "Careers", href: "#", hasDropdown: false },
-];
+// ---- Static content (edit here) ---
 
 const HERO_IMAGE_URL =
   "https://res.cloudinary.com/dcuodmb77/image/upload/q_auto/f_auto/v1775733203/Screenshot_2026-04-09_164242_mqs4ac.png";
@@ -134,11 +124,29 @@ function Hero() {
 
   return (
     <section
-      className={`h-[420px] bg-cover bg-center transition-all duration-1000 ease-out ${
+      className={`relative h-[420px] sm:h-[480px] w-full bg-cover bg-center flex items-center justify-center transition-all duration-1000 ease-out ${
         mounted ? "opacity-100 scale-100" : "opacity-0 scale-105"
       }`}
       style={{ backgroundImage: `url(${HERO_IMAGE_URL})` }}
-    />
+    >
+      {/* Dark Overlay */}
+      <div className="absolute inset-0  z-10" />
+
+      {/* Centered Content Container */}
+      <div className="relative z-20 max-w-4xl mx-auto px-6 text-center flex flex-col items-center justify-center">
+        {/* Main Title */}
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-normal mb-4 drop-shadow-md">
+          Lightweight Strength for the Skies
+        </h1>
+
+        {/* Subtitle / Description */}
+        <p className="text-xs sm:text-base text-gray-200 font-normal leading-relaxed max-w-2xl drop-shadow">
+          Aerospace demands precision and perfection. We offer high-fidelity simulations,
+          <br className="hidden sm:inline" /> stress analysis, and CAD solutions for weight-optimized, safety-critical aerospace
+          <br className="hidden sm:inline" /> components and systems.
+        </p>
+      </div>
+    </section>
   );
 }
 

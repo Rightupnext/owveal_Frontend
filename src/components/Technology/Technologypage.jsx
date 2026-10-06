@@ -2,16 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import { Check, ChevronDown } from "lucide-react";
 
 // ---- Static content (edit here) ----
-const NAV_LINKS = [
-  { label: "Home", href: "#", hasDropdown: false },
-  { label: "Industries", href: "#", hasDropdown: true },
-  { label: "Expertices", href: "#", hasDropdown: true },
-  { label: "Products", href: "#", hasDropdown: true },
-  { label: "Success Story", href: "#", hasDropdown: false },
-  { label: "Case Study", href: "#", hasDropdown: false },
-  { label: "About Us", href: "#", hasDropdown: false },
-  { label: "Careers", href: "#", hasDropdown: false },
-];
 
 const HERO_IMAGE_URL =
   "https://res.cloudinary.com/dcuodmb77/image/upload/q_auto/f_auto/v1775733551/Screenshot_2026-04-09_164854_kg2lbm.png";
@@ -125,34 +115,7 @@ function useInView(threshold = 0.2) {
 
 // ---- Sub-components ----
 
-function Navbar() {
-  return (
-    <header className="flex items-center justify-between px-6 lg:px-10 py-4 bg-white shadow-sm">
-      <div className="flex items-center gap-2">
-        <div className="w-9 h-9 rounded-full border-2 border-indigo-700 flex items-center justify-center text-indigo-700 font-bold">
-          O
-        </div>
-        <div className="leading-tight">
-          <p className="text-lg font-bold text-indigo-900 tracking-wide">OWVEAL</p>
-          <p className="text-[10px] text-red-600 tracking-widest -mt-1">ENGINEERING PVT. LTD.</p>
-        </div>
-      </div>
 
-      <nav className="hidden lg:flex items-center gap-7 text-sm font-medium text-gray-800">
-        {NAV_LINKS.map((link) => (
-          <a key={link.label} href={link.href} className="flex items-center gap-1 hover:text-indigo-700">
-            {link.label}
-            {link.hasDropdown && <ChevronDown className="w-4 h-4" />}
-          </a>
-        ))}
-      </nav>
-
-      <button className="bg-red-600 hover:bg-red-700 text-white text-sm font-semibold px-5 py-2.5 rounded-md">
-        Contact us
-      </button>
-    </header>
-  );
-}
 
 function Hero() {
   const [mounted, setMounted] = useState(false);
@@ -164,11 +127,28 @@ function Hero() {
 
   return (
     <section
-      className={`h-[420px] bg-cover bg-center transition-all duration-1000 ease-out ${
+      className={`relative h-[420px] sm:h-[480px] w-full bg-cover bg-center flex items-center justify-center transition-all duration-1000 ease-out ${
         mounted ? "opacity-100 scale-100" : "opacity-0 scale-105"
       }`}
       style={{ backgroundImage: `url(${HERO_IMAGE_URL})` }}
-    />
+    >
+      {/* Dark Overlay for Text Readability */}
+      <div className="absolute inset-0  z-10" />
+
+      {/* Centered Content Container */}
+      <div className="relative z-20 max-w-3xl mx-auto px-6 text-center flex flex-col items-center justify-center">
+        {/* Main Title */}
+        <h1 className="text-4xl sm:text-4xl font-black text-white tracking-wide mb-4 drop-shadow-lg">
+          Technology
+        </h1>
+
+        {/* Subtitle / Description */}
+        <p className="text-sm sm:text-lg text-gray-200 font-normal leading-relaxed max-w-2xl drop-shadow">
+          We design and develop intelligent technology solutions that integrate
+          <br className="hidden sm:inline" /> hardware, software, and data systems to create smarter operations.
+        </p>
+      </div>
+    </section>
   );
 }
 

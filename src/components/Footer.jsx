@@ -106,9 +106,9 @@ export default function Footer() {
           <div className="lg:col-span-2 space-y-3">
             <h4 className="font-bold text-gray-900 text-sm sm:text-base">Insights</h4>
             <ul className="space-y-2 text-xs sm:text-sm text-gray-600">
-              <li><a href="#casestudies" className="hover:text-red-600 transition">Case Studies</a></li>
-              <li><a href="#successstory" className="hover:text-red-600 transition">Success Story</a></li>
-              <li><a href="#careers" className="hover:text-red-600 transition">Careers</a></li>
+              <li><a href="/expertise/engineering-rd" className="hover:text-red-600 transition">Case Studies</a></li>
+              <li><a href="/success-stories" className="hover:text-red-600 transition">Success Story</a></li>
+              <li><a href="/careers" className="hover:text-red-600 transition">Careers</a></li>
             </ul>
           </div>
 

@@ -2,16 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Check, ChevronDown } from "lucide-react";
 
 // ---- Static content (edit here) ----
-const NAV_LINKS = [
-  { label: "Home", href: "#", hasDropdown: false },
-  { label: "Industries", href: "#", hasDropdown: true },
-  { label: "Expertices", href: "#", hasDropdown: true },
-  { label: "Products", href: "#", hasDropdown: true },
-  { label: "Success Story", href: "#", hasDropdown: false },
-  { label: "Case Study", href: "#", hasDropdown: false },
-  { label: "About Us", href: "#", hasDropdown: false },
-  { label: "Careers", href: "#", hasDropdown: false },
-];
+
 
 const HERO_IMAGE_URL =
   "https://res.cloudinary.com/dcuodmb77/image/upload/q_auto/f_auto/v1775732845/Screenshot_2026-04-09_163712_mnirde.png";
@@ -134,11 +125,28 @@ function Hero() {
 
   return (
     <section
-      className={`h-[420px] bg-cover bg-center transition-all duration-1000 ease-out ${
+      className={`relative h-[420px] sm:h-[480px] w-full bg-cover bg-center flex items-center justify-center transition-all duration-1000 ease-out ${
         mounted ? "opacity-100 scale-100" : "opacity-0 scale-105"
       }`}
       style={{ backgroundImage: `url(${HERO_IMAGE_URL})` }}
-    />
+    >
+      {/* Dark Overlay for Text Readability */}
+      <div className="absolute inset-0  z-10" />
+
+      {/* Centered Content Container */}
+      <div className="relative z-20 max-w-3xl mx-auto px-6 text-center flex flex-col items-center justify-center">
+        {/* Main Title */}
+        <h1 className="text-4xl sm:text-4xl font-black text-white tracking-wide mb-4 drop-shadow-lg">
+          Railway Systems
+        </h1>
+
+        {/* Subtitle / Description */}
+        <p className="text-sm sm:text-lg text-gray-200 font-normal leading-relaxed max-w-2xl drop-shadow">
+          We design and optimize components for railway systems that demand
+          <br className="hidden sm:inline" /> long-term durability, safety, and consistent performance.
+        </p>
+      </div>
+    </section>
   );
 }
 

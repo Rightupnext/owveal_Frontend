@@ -10,16 +10,16 @@ const Header = () => {
   };
 
   const industriesItems = [
-    { name: 'Healthcare', href: '/industries/healthcare' },
+    { name: 'Healthcare Technology', href: '/industries/healthcare' },
+    { name: 'Aerospace', href: '/industries/aerospace' },
+    { name: 'Automotive', href: '/industries/automotive' },
+    { name: 'Heavy Machinery', href: '/industries/heavy-machinery' },
+    { name: 'Agro-tech', href: '/industries/agro-tech' },
     { name: 'Technology', href: '/industries/Technology' },
     { name: 'Railway', href: '/industries/railway' },
-    { name: 'Aerospace', href: '/industries/aerospace' },
     { name: 'Defense', href: '/industries/defense' },
-    { name: 'Automotive', href: '/industries/automotive' },
     { name: 'Pharmaceuticals', href: '/industries/pharmaceuticals' },
-    { name: 'Heavy Machinery', href: '/industries/heavy-machinery' },
     { name: 'Food & Beverage', href: '/industries/food-beverage' },
-    { name: 'Agro-tech', href: '/industries/agro-tech' },
   ];
 
   const expertiseItems = [
